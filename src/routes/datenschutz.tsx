@@ -5,8 +5,8 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/datenschutz")({
   head: () => ({
     meta: [
-      { title: "Datenschutz — Anderka GmbH Bauunternehmen" },
-      { name: "description", content: "Datenschutzerklärung der Anderka GmbH Bauunternehmen." },
+      { title: "Datenschutz — Baugeschäft Stefan Huber" },
+      { name: "description", content: "Datenschutzerklärung des Baugeschäfts Stefan Huber GmbH & Co. KG." },
       { name: "robots", content: "noindex" },
       { property: "og:url", content: "/datenschutz" },
     ],
@@ -28,8 +28,8 @@ function Datenschutz() {
           <Reveal>
             <h2 className="font-serif text-2xl text-foreground mb-3">Verantwortlicher</h2>
             <p>
-              Anderka GmbH Bauunternehmen, Isener Str. 6, Moosham, 83527 Kirchdorf.
-              E-Mail: info@anderka-bau-gmbh.de · Telefon: 08072 / 575
+              Baugeschäft Stefan Huber GmbH &amp; Co. KG, Manhartsdorf 18, 85456 Wartenberg.
+              Verantwortlicher: Stefan Huber. E-Mail: info@baugeschaeft-huber.de · Telefon: 08762 - 18 89
             </p>
           </Reveal>
           <Reveal delay={80}>

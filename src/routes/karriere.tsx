@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowRight, Grid2x2, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import karriereHero from "@/assets/karriere-hero.jpg";
 import karriereTeam from "@/assets/karriere-team.jpg";
 import untEntwicklung from "@/assets/unt-entwicklung.jpg";
@@ -12,9 +13,9 @@ import jobPraktikum from "@/assets/job-praktikum.jpg";
 export const Route = createFileRoute("/karriere")({
   head: () => ({
     meta: [
-      { title: "Karriere — Anderka GmbH Bauunternehmen" },
-      { name: "description", content: "Offene Stellen für Maurer, Auszubildende und Praktikanten zur Berufsorientierung im familiengeführten Bauunternehmen Anderka GmbH in Kirchdorf-Moosham." },
-      { property: "og:title", content: "Karriere — Anderka GmbH" },
+      { title: "Karriere — Baugeschäft Stefan Huber" },
+      { name: "description", content: "Verstärkung für unser Team ist immer willkommen. Wir freuen uns auf Bewerbungen von Facharbeitern (m/w/d) im Bauhandwerk sowie auf Auszubildende und Praktikanten beim Baugeschäft Stefan Huber in Wartenberg." },
+      { property: "og:title", content: "Karriere — Baugeschäft Stefan Huber" },
       { property: "og:description", content: "Werde Teil eines Teams, das zusammenhält." },
       { property: "og:url", content: "/karriere" },
     ],
@@ -23,34 +24,65 @@ export const Route = createFileRoute("/karriere")({
   component: Karriere,
 });
 
+const ausbildungText = [
+  "Als Auszubildender im Baugewerbe lernst du nicht nur, wie man Häuser baut, sondern auch, wie man alte Gebäude saniert, umbaut oder erweitert. Du arbeitest mit unterschiedlichsten Materialien, deren Einsatzmöglichkeiten du auf der Baustelle und in der Berufsschule lernst. Neben dem Wissen zu verschiedenen Techniken lernst du vor allem eines: Teamarbeit. Ein Haus kann man nur gemeinsam bauen.",
+  "Du bist an der frischen Luft und viel in Bewegung, da beim Hausbau immer noch viel Handarbeit gefragt ist, auch wenn dir Maschinen zur Verfügung stehen. Die Arbeiten als Maurer sind abwechslungsreich, da du nicht nur auf verschiedenen Baustellen bist, sondern auch unterschiedliche Tätigkeitsbereiche hast wie z.B. betonieren, mauern, ein- oder ausschalen. Räumliches Vorstellungsvermögen und gute Kenntnisse in Mathe brauchst du auf jeden Fall.",
+];
+
+const ausbildungEckdaten = [
+  { label: "Ausbildungsdauer", wert: "3 Jahre" },
+  { label: "Schulische Voraussetzung", wert: "mind. qual. Mittelschulabschluss" },
+  { label: "Weiterbildungsmöglichkeiten", wert: "Maurermeister/in, Betonbaumeister/in" },
+];
+
 const jobs = [
   {
     img: jobFacharbeiter,
-    label: "Facharbeiter / Maurer",
-    text: "Ausgelernt? Werde Teil eines eingespielten Teams auf abwechslungsreichen Baustellen in der Region.",
+    label: "Facharbeiter (m/w/d) im Bauhandwerk",
+    text: "Verstärkung für unser Team ist immer willkommen. Wir freuen uns auf Ihre Bewerbung. Einfach per E-Mail an Stefan Huber.",
+    details: {
+      paragraphs: [
+        "Verstärkung für unser Team ist immer willkommen. Deshalb freuen wir uns auf Bewerbungen von Facharbeitern (m/w/d) im Bauhandwerk.",
+        "Du wirst Teil eines Teams aus erfahrenen, langjährigen Mitarbeitern und arbeitest auf abwechslungsreichen Baustellen in der Region — im Rohbau, beim schlüsselfertigen Bauen und bei Umbau & Sanierung. Wir bauen in der Region mit Partnern aus der Region.",
+        "Sie haben während der ganzen Bauphase immer einen Ansprechpartner: Stefan Huber. Einfach per E-Mail bewerben — wir melden uns persönlich zurück.",
+      ],
+      eckdaten: [] as { label: string; wert: string }[],
+    },
   },
   {
     img: jobAusbildung,
-    label: "Ausbildung",
-    text: "Wir bilden mit Sorgfalt aus und begleiten dich auf deinem ganzen Weg ins Bauhandwerk.",
+    label: "Ausbildung zum Maurer (m/w/d)",
+    text: "Als Auszubildender im Baugewerbe lernst du, wie man Häuser baut, saniert, umbaut oder erweitert — und vor allem: Teamarbeit. Ein Haus kann man nur gemeinsam bauen.",
+    details: {
+      paragraphs: ausbildungText,
+      eckdaten: ausbildungEckdaten,
+    },
   },
   {
     img: jobPraktikum,
     label: "Praktikum",
-    text: "Finde im Praktikum zur Berufsorientierung heraus, ob das Bauhandwerk dein Beruf wird.",
+    text: "Bei Interesse an einer Maurerlehre: schau dir den Beruf des Maurers doch bei einem Praktikum an.",
+    details: {
+      paragraphs: [
+        "Bei Interesse an einer Maurerlehre: schau dir den Beruf des Maurers doch bei einem Praktikum an.",
+        "So bekommst du einen echten Einblick in den Beruf des Maurers und unseren Familienbetrieb — und findest heraus, ob die Maurerlehre das Richtige für dich ist.",
+      ],
+      eckdaten: [] as { label: string; wert: string }[],
+    },
   },
 ];
 
 const benefits = [
-  "Familienbetrieb mit kurzen Wegen und persönlicher Wertschätzung",
-  "Sichere, wiederholt ausgezeichnete Ausbildung",
-  "Laufend erneuerter Fuhr- und Maschinenpark",
-  "Eingespieltes, stabiles Team",
-  "Gelebte Jubiläumskultur und langjährige Mitarbeiter",
+  "Familienbetrieb mit kurzen Wegen und einem festen Ansprechpartner",
+  "Durchdachte Ablaufplanung und gute Organisation der Gewerke",
+  "Abwechslungsreiche Baustellen in der Region",
+  "Eingespieltes Team aus erfahrenen, langjährigen Mitarbeitern",
+  "Wir bauen in der Region mit Partnern aus der Region",
 ];
 
 function Karriere() {
   const [active, setActive] = useState(0);
+  const [openJob, setOpenJob] = useState<number | null>(null);
   const prev = () => setActive((i) => (i - 1 + jobs.length) % jobs.length);
   const next = () => setActive((i) => (i + 1) % jobs.length);
 
@@ -66,7 +98,7 @@ function Karriere() {
       "",
       `${fd.get("nachricht")}`,
     ].join("\n");
-    window.location.href = `mailto:info@anderka-bau-gmbh.de?subject=${encodeURIComponent(
+    window.location.href = `mailto:info@baugeschaeft-huber.de?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(body)}`;
   };
@@ -77,7 +109,7 @@ function Karriere() {
       <section className="relative w-full h-[88svh] min-h-[560px] overflow-hidden">
         <img
           src={karriereHero}
-          alt="Lachender Bauarbeiter mit Helm auf einer Anderka-Baustelle"
+          alt="Lachender Bauarbeiter mit Helm auf einer Baustelle von Baugeschäft Stefan Huber"
           width={2048}
           height={1360}
           className="absolute inset-0 w-full h-full object-cover object-[70%_center]"
@@ -115,16 +147,15 @@ function Karriere() {
           <div className="max-w-4xl">
             <Reveal>
               <p className="font-serif text-2xl md:text-4xl leading-[1.2] text-foreground">
-                Deine Zukunft bei Anderka beginnt jetzt.
+                Verstärkung für unser Team ist immer willkommen.
               </p>
             </Reveal>
             <Reveal delay={100}>
               <p className="mt-8 text-lg text-stone leading-relaxed">
-                Der Grundstein jedes Unternehmens sind tatkräftige, qualifizierte Mitarbeiter.
-                Fachpersonal ist heute mehr gefragt denn je — und wir sind stolz darauf, dass die
-                von uns ausgebildeten Maurer wiederholt ausgezeichnet werden. Eine besondere Freude
-                sind unsere langjährigen Mitarbeiter, mit denen wir immer wieder Berufsjubiläen
-                feiern dürfen. Bist du bereit, mit uns die Region zu prägen?
+                Deshalb freuen wir uns auf Bewerbungen von Facharbeitern (m/w/d) im Bauhandwerk.
+                Du wirst Teil eines Teams aus erfahrenen, langjährigen Mitarbeitern und arbeitest
+                auf abwechslungsreichen Baustellen in der Region. Einfach per E-Mail an Stefan Huber:{" "}
+                <a href="mailto:info@baugeschaeft-huber.de" className="link-underline">info@baugeschaeft-huber.de</a>.
               </p>
             </Reveal>
             <Reveal delay={160}>
@@ -143,22 +174,22 @@ function Karriere() {
             {/* Bild */}
             <div className="relative z-10 md:absolute md:inset-y-0 md:w-1/2 md:left-0">
               <div className="relative aspect-[4/3] md:aspect-auto md:h-full overflow-hidden shadow-editorial">
-                <img src={untEntwicklung} alt="Das Betriebsgelände der Anderka GmbH" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                <img src={untEntwicklung} alt="Baustelle von Baugeschäft Stefan Huber" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
               </div>
             </div>
             {/* Rahmen mit Text */}
             <div className="mt-6 md:mt-0 w-full border border-stone/30 p-8 md:py-14 md:pl-[54%] md:pr-12 md:flex md:flex-col md:justify-center">
               <h2 className="font-serif text-3xl md:text-4xl leading-[1.1]">Wer wir sind</h2>
               <p className="mt-5 text-stone leading-relaxed">
-                Die Anderka GmbH ist ein familiengeführtes Bauunternehmen in Kirchdorf-Moosham —
-                seit 1962, heute in dritter Generation. Wir bauen in und um Moosham und decken die
-                gesamte Wertschöpfung am Bau ab.
+                Baugeschäft Stefan Huber ist ein Familienbetrieb in Wartenberg — gegründet von
+                Konrad Huber sen. und seit 2008 mit neuem Namen von Stefan Huber geführt. Wir bauen
+                in der Region mit Partnern aus der Region.
               </p>
               <ul className="mt-6 space-y-2 text-stone">
-                <li className="flex gap-3"><span className="text-primary">—</span> Hoch-, Rohbau & Schlüsselfertigbau</li>
-                <li className="flex gap-3"><span className="text-primary">—</span> Gewerbe- & Landwirtschaftsbau</li>
-                <li className="flex gap-3"><span className="text-primary">—</span> Tiefbau & Außenanlagen</li>
-                <li className="flex gap-3"><span className="text-primary">—</span> Eigene Kiesgrube & PV-Anlage</li>
+                <li className="flex gap-3"><span className="text-primary">—</span> Rohbau</li>
+                <li className="flex gap-3"><span className="text-primary">—</span> Schlüsselfertiges Bauen</li>
+                <li className="flex gap-3"><span className="text-primary">—</span> Umbau & Sanierung</li>
+                <li className="flex gap-3"><span className="text-primary">—</span> Durchdachte Ablaufplanung</li>
               </ul>
             </div>
           </Reveal>
@@ -172,16 +203,16 @@ function Karriere() {
             {/* Bild rechts */}
             <div className="relative z-10 md:absolute md:inset-y-0 md:w-1/2 md:right-0">
               <div className="relative aspect-[4/3] md:aspect-auto md:h-full overflow-hidden shadow-editorial">
-                <img src={karriereTeam} alt="Mitarbeiter der Anderka GmbH auf der Baustelle" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                <img src={karriereTeam} alt="Mitarbeiter von Baugeschäft Stefan Huber auf der Baustelle" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
               </div>
             </div>
             {/* Rahmen mit Text links */}
             <div className="mt-6 md:mt-0 w-full border border-stone/30 p-8 md:py-14 md:pr-[54%] md:pl-12 md:flex md:flex-col md:justify-center">
               <h2 className="font-serif text-3xl md:text-4xl leading-[1.1]">Wofür wir stehen</h2>
               <p className="mt-5 text-stone leading-relaxed">
-                Wer bei Anderka arbeitet, baut nicht irgendwo — sondern in der Region, mit guten
-                Werkzeugen und unter Menschen, die zueinander stehen. Dienst nach Vorschrift ist bei
-                uns ein Fremdwort: Was zählt, sind Handwerk, Verlässlichkeit und ein gutes Miteinander.
+                Wer bei Baugeschäft Stefan Huber arbeitet, baut nicht irgendwo — sondern in der
+                Region, mit guten Werkzeugen und unter Menschen, die zueinander stehen. Was zählt,
+                sind Handwerk, Verlässlichkeit und ein gutes Miteinander in einem eingespielten Team.
               </p>
               <p className="mt-6 font-medium text-foreground">Das bieten wir:</p>
               <ul className="mt-3 space-y-2 text-stone">
@@ -201,7 +232,7 @@ function Karriere() {
             <Reveal>
               <span className="eyebrow eyebrow-line">Stellenangebote</span>
               <h2 className="mt-6 font-serif text-4xl md:text-5xl leading-[1.02] whitespace-nowrap">
-                Deine Stelle bei Anderka
+                Deine Stelle bei uns
               </h2>
             </Reveal>
             <Reveal delay={120} className="hidden sm:block shrink-0">
@@ -224,11 +255,18 @@ function Karriere() {
             >
               {jobs.map((j, i) => (
                 <div key={j.label} className="shrink-0 basis-[70%] px-2 md:px-4">
-                  <button
-                    type="button"
+                  <div
+                    role="button"
+                    tabIndex={0}
                     onClick={() => setActive(i)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setActive(i);
+                      }
+                    }}
                     aria-label={`${j.label} anzeigen`}
-                    className="block w-full text-left"
+                    className="block w-full text-left cursor-pointer"
                   >
                     <div
                       className={`relative aspect-[16/9] overflow-hidden transition-all duration-500 ${
@@ -241,13 +279,24 @@ function Karriere() {
                         loading="lazy"
                         className="absolute inset-0 w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
                       <div className="absolute bottom-0 left-0 p-6 md:p-10 text-white">
                         <h3 className="font-serif text-2xl md:text-4xl">{j.label}</h3>
                         <p className="mt-2 max-w-md text-white/85 hidden md:block">{j.text}</p>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActive(i);
+                            setOpenJob(i);
+                          }}
+                          className="mt-4 inline-flex items-center gap-2 bg-background text-foreground px-5 py-2.5 text-xs uppercase tracking-[0.18em] hover:bg-primary hover:text-primary-foreground transition-colors"
+                        >
+                          Mehr erfahren <ArrowRight size={14} />
+                        </button>
                       </div>
                     </div>
-                  </button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -298,12 +347,12 @@ function Karriere() {
       <section className="bg-foreground text-background">
         <div className="container-x py-20 md:py-28 grid md:grid-cols-12 gap-10 items-center">
           <Reveal className="md:col-span-7">
-            <span className="eyebrow eyebrow-line" style={{ color: "#F5EBEB" }}>Bewerbung</span>
+            <span className="eyebrow eyebrow-line text-background/70">Bewerbung</span>
             <h2 className="mt-6 font-serif text-3xl md:text-5xl leading-[1.05]">
               Schick uns deine Bewerbung — wir lesen jede.
             </h2>
             <p className="mt-6 text-background/80 max-w-xl">
-              Per Mail an <a href="mailto:info@anderka-bau-gmbh.de" className="link-underline">info@anderka-bau-gmbh.de</a> oder ganz einfach über das Formular unten. Wir melden uns persönlich zurück.
+              Einfach per E-Mail an Stefan Huber: <a href="mailto:info@baugeschaeft-huber.de" className="link-underline">info@baugeschaeft-huber.de</a> oder ganz einfach über das Formular unten. Wir melden uns persönlich zurück.
             </p>
           </Reveal>
         </div>
@@ -344,10 +393,10 @@ function Karriere() {
                 </label>
                 <label className="flex flex-col gap-2 sm:col-span-2">
                   <span className="text-sm font-medium text-foreground">Ich bewerbe mich als</span>
-                  <select name="position" defaultValue="Facharbeiter / Maurer" className="w-full bg-background border border-border px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors">
-                    <option>Facharbeiter / Maurer</option>
-                    <option>Ausbildung</option>
-                    <option>Praktikum zur Berufsorientierung</option>
+                  <select name="position" defaultValue="Facharbeiter (m/w/d) im Bauhandwerk" className="w-full bg-background border border-border px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors">
+                    <option>Facharbeiter (m/w/d) im Bauhandwerk</option>
+                    <option>Ausbildung zum Maurer (m/w/d)</option>
+                    <option>Praktikum</option>
                     <option>Initiativbewerbung</option>
                   </select>
                 </label>
@@ -366,6 +415,47 @@ function Karriere() {
           </div>
         </div>
       </section>
+
+      {/* STELLEN-DETAIL MODAL */}
+      <Dialog open={openJob !== null} onOpenChange={(o) => !o && setOpenJob(null)}>
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
+          {openJob !== null && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="font-serif text-2xl md:text-3xl leading-tight">
+                  {jobs[openJob].label}
+                </DialogTitle>
+              </DialogHeader>
+              <div className="mt-2 space-y-4 text-stone leading-relaxed">
+                {jobs[openJob].details.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+              {jobs[openJob].details.eckdaten.length > 0 && (
+                <dl className="mt-6 grid sm:grid-cols-3 gap-px bg-border border border-border">
+                  {jobs[openJob].details.eckdaten.map((e) => (
+                    <div key={e.label} className="bg-background p-4">
+                      <dt className="text-xs uppercase tracking-[0.18em] text-stone">{e.label}</dt>
+                      <dd className="mt-1 font-medium text-foreground leading-snug">{e.wert}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link to="/kontakt" onClick={() => setOpenJob(null)} className="btn-primary">
+                  Jetzt bewerben <ArrowRight size={16} />
+                </Link>
+                <a
+                  href="mailto:info@baugeschaeft-huber.de"
+                  className="inline-flex items-center px-6 py-3 border border-foreground/30 text-sm hover:bg-foreground hover:text-background transition-colors"
+                >
+                  Per E-Mail bewerben
+                </a>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

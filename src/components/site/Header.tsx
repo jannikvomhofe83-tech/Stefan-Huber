@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import logo from "@/assets/logo-anderka.png";
+import logo from "@/assets/logo-huber.png";
 
 const nav = [
   { to: "/", label: "Startseite" },
@@ -10,16 +10,9 @@ const nav = [
 ];
 
 export const leistungenNav = [
-  { to: "/leistungen/individuelle-planung", label: "Individuelle Planung" },
-  { to: "/leistungen/wohnbau", label: "Ein- und Mehrfamilienhäuser" },
-  { to: "/leistungen/rohbau-schluesselfertig", label: "Rohbau bis Schlüsselfertigbau" },
-  { to: "/leistungen/gewerbebau", label: "Gewerbebau" },
-  { to: "/leistungen/landwirtschaftsbau", label: "Landwirtschaftliche Bauten" },
-  { to: "/leistungen/oeffentliche-bauten", label: "Öffentliche Bauten" },
-  { to: "/leistungen/sichtbeton", label: "Sichtbeton & Sichtmauerwerk" },
-  { to: "/leistungen/umbau-renovierung", label: "Umbau & Renovierung" },
-  { to: "/leistungen/tiefbau", label: "Tiefbau" },
-  { to: "/leistungen/kiesgrube", label: "Kiesgrube — regional" },
+  { to: "/leistungen/rohbau", label: "Rohbau" },
+  { to: "/leistungen/schluesselfertiges-bauen", label: "Schlüsselfertiges Bauen" },
+  { to: "/leistungen/umbau-sanierung", label: "Umbau & Sanierung" },
 ];
 
 const textShadow = { textShadow: "0 1px 10px rgba(0,0,0,0.45)" };
@@ -55,14 +48,15 @@ export function Header() {
   return (
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${headerBg}`}>
       <div className="container-x flex items-center justify-between gap-6" style={onDark ? textShadow : undefined}>
-        <Link to="/" className="flex items-center gap-3 group shrink-0">
-          <img src={logo} alt="Anderka GmbH Logo" className="h-9 md:h-10 w-auto" />
-          <span className={`font-serif text-2xl tracking-tight leading-none ${onDark ? "text-white" : "text-foreground"}`}>
-            Anderka
-          </span>
-          <span className={`hidden sm:inline text-[10px] uppercase tracking-[0.22em] ${onDark ? "text-white/80" : "text-primary"}`}>
-            seit 1962
-          </span>
+        <Link
+          to="/"
+          aria-label="Baugeschäft Stefan Huber — Startseite"
+          className={`flex items-center shrink-0 transition-all duration-300 ${
+            onDark ? "bg-white/95 rounded-md px-3 py-1.5 shadow-sm" : ""
+          }`}
+          style={{ textShadow: "none" }}
+        >
+          <img src={logo} alt="Baugeschäft Stefan Huber Logo" className="h-9 md:h-11 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-9">
@@ -85,7 +79,7 @@ export function Header() {
           {/* Leistungen Dropdown */}
           <div className="relative group">
             <Link
-              to="/leistungen/individuelle-planung"
+              to="/leistungen/rohbau"
               className={`link-underline text-sm font-medium inline-flex items-center gap-1 ${linkBase}`}
               activeProps={{ className: `link-underline text-sm font-medium inline-flex items-center gap-1 ${linkActive}` }}
             >

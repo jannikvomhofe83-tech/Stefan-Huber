@@ -9,15 +9,14 @@ import lgFamilie from "@/assets/lg-familie.jpg";
 import lgMassgeschneidert from "@/assets/lg-massgeschneidert.jpg";
 import lgAusbildung from "@/assets/lg-ausbildung.jpg";
 import logoMarker from "@/assets/logo-anderka.png";
-import kitaBadge from "@/assets/kita-badge.jpg";
 
 export const Route = createFileRoute("/unternehmen")({
   head: () => ({
     meta: [
-      { title: "Unternehmen — Anderka GmbH Bauunternehmen" },
-      { name: "description", content: "Familienbetrieb seit 1962 in dritter Generation. Geschichte, Werte, Nachhaltigkeit und das KITA-Projekt der bayerischen Bauwirtschaft." },
-      { property: "og:title", content: "Unternehmen — Anderka GmbH" },
-      { property: "og:description", content: "Drei Generationen bayerisches Bauhandwerk in Moosham." },
+      { title: "Über uns — Baugeschäft Stefan Huber" },
+      { name: "description", content: "Familienbetrieb in Wartenberg. Gegründet von Konrad Huber sen., seit 2008 von Stefan Huber geführt. Durchdachte Ablaufplanung für Rohbau, schlüsselfertiges Bauen sowie Umbau & Sanierung." },
+      { property: "og:title", content: "Über uns — Baugeschäft Stefan Huber" },
+      { property: "og:description", content: "Familienbetrieb für Rohbau, schlüsselfertiges Bauen sowie Umbau & Sanierung in der Region." },
       { property: "og:url", content: "/unternehmen" },
     ],
     links: [{ rel: "canonical", href: "/unternehmen" }],
@@ -27,27 +26,27 @@ export const Route = createFileRoute("/unternehmen")({
 
 const meilensteine = [
   {
-    titel: "Start von Anderka",
+    titel: "Gründung",
     img: untStart,
     text: [
-      "Am 02. April 1962 gründet Gottfried Anderka sen. in Rain bei Haag ein Baugeschäft, das sich rasch zu einer tatkräftigen Firma entwickelt.",
-      "1966 verlegt die Familie den Betrieb an den heutigen Standort in Moosham — mit neuem Wohnhaus und eigenem Büro.",
+      "Unser Familienbetrieb wurde von Konrad Huber sen. gegründet. Darauf bauen wir bis heute.",
+      "Ein Team aus erfahrenen, langjährigen Mitarbeitern bildet seither die Grundlage für hochwertige Bauarbeiten.",
     ],
   },
   {
-    titel: "Entwicklung",
+    titel: "2008 — Neuausrichtung",
     img: untEntwicklung,
     text: [
-      "In den folgenden Jahrzehnten werden Lager, Maschinen und Fuhrpark kontinuierlich erweitert; die Belegschaft wächst auf rund 50 Mitarbeiter.",
-      "1998 übernimmt Gottfried Anderka die Führung von seinem Vater. 2019 folgt die Anerkennung als zertifizierter Fachbetrieb für JGS-Anlagen — Jauche, Gülle, Silagesickersäfte.",
+      "Seit 2008 wird der Betrieb mit neuem Namen von Stefan Huber geführt und weiterentwickelt.",
+      "Er ist staatl. geprüfter Bautechniker und Maurer- und Betonbaumeister.",
     ],
   },
   {
-    titel: "Gegenwart",
+    titel: "Heute",
     img: untGegenwart,
     text: [
-      "Heute führt die Familie das Unternehmen in dritter Generation. Wir arbeiten stetig daran, auf dem neuesten Stand der Technik zu sein — mit kontinuierlich erneuertem Maschinenpark und eigener Kiesgrube.",
-      "Auf den Dächern unserer Lagerhallen erzeugen eigene Photovoltaik-Anlagen den Strom für unseren Betrieb. Gemeinsam mit Partnern forschen wir an ökologischen, klimaneutralen Baumaterialien.",
+      "Unser Ziel ist, dass unsere Bauherren zufrieden sind und uns weiterempfehlen. Darauf bauen wir seit 2008.",
+      "Vertrauen Sie unserer Erfahrung aus vielen Projekten im Rohbau, beim schlüsselfertig Bauen oder im Umbau. Wir bauen in der Region mit Partnern aus der Region.",
     ],
   },
 ];
@@ -61,13 +60,13 @@ function Unternehmen() {
           <nav className="mb-6 flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-stone">
             <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
             <span aria-hidden>›</span>
-            <span className="text-foreground">Unternehmen</span>
+            <span className="text-foreground">Über uns</span>
           </nav>
 
           <div className="relative aspect-video w-full overflow-hidden bg-black group select-none cursor-pointer">
             <img
               src={unternehmenVideo}
-              alt="Anderka GmbH — Unternehmensfilm (Vorschau)"
+              alt="Baugeschäft Stefan Huber — Unternehmensfilm (Vorschau)"
               width={2688}
               height={1520}
               className="absolute inset-0 w-full h-full object-cover"
@@ -89,8 +88,8 @@ function Unternehmen() {
             {/* Label-Box */}
             <div className="absolute bottom-16 md:bottom-20 right-5 md:right-10 border border-white/70 px-5 md:px-8 py-3 md:py-5 text-right text-white">
               <div className="font-serif text-2xl md:text-4xl tracking-wide">Arbeitswelt</div>
-              <div className="mt-2 inline-block bg-primary px-3 py-1 text-[10px] md:text-xs uppercase tracking-[0.2em]">
-                Anderka GmbH
+              <div className="mt-2 inline-block bg-primary text-primary-foreground px-3 py-1 text-[10px] md:text-xs uppercase tracking-[0.2em]">
+                Stefan Huber
               </div>
             </div>
 
@@ -115,14 +114,33 @@ function Unternehmen() {
         <div className="container-x">
           <div className="mx-auto max-w-3xl text-center">
             <Reveal>
-              <h2 className="font-serif text-4xl md:text-6xl leading-[1.05]">
-                Ein Familienunternehmen mit Tradition
+              <span className="eyebrow eyebrow-line">Über uns</span>
+            </Reveal>
+            <Reveal delay={80}>
+              <h2 className="mt-6 font-serif text-4xl md:text-6xl leading-[1.05]">
+                Baugeschäft Stefan Huber
               </h2>
             </Reveal>
             <Reveal delay={120}>
-              <p className="mt-8 text-lg text-stone leading-relaxed">
-                Seit 1962 baut die Familie Anderka in und um Moosham. Was als Baugeschäft begann, ist heute ein modernes Bauunternehmen mit eigener Kiesgrube, eigener PV-Anlage und einem Team, das zusammenhält.
+              <p className="mt-8 text-lg font-medium text-foreground leading-relaxed">
+                Unsere absolute Stärke ist eine durchdachte Ablaufplanung und eine perfekte Organisation der verschiedenen Gewerke und Tätigkeiten.
               </p>
+            </Reveal>
+            <Reveal delay={160}>
+              <div className="mt-8 space-y-6 text-lg text-stone leading-relaxed text-center">
+                <p>
+                  Unser Ziel ist, dass unsere Bauherren zufrieden sind und uns weiterempfehlen. Darauf bauen wir seit 2008. Wir, das ist ein Team aus erfahrenen, langjährigen Mitarbeitern. Unser Familienbetrieb, wurde von Konrad Huber sen. gegründet und wird seit 2008 mit neuem Namen von Stefan Huber, geführt und weiterentwickelt. Er ist staatl. geprüfter Bautechniker und Maurer- und Betonbaumeister.
+                </p>
+                <p>
+                  Sie haben während der ganzen Bauphase immer einen Ansprechpartner der dafür sorgt, dass auf Ihrer Baustelle alles läuft.
+                </p>
+                <p>
+                  Vertrauen Sie unserer Erfahrung aus vielen Projekten im Rohbau oder im Umbau. Beim schlüsselfertig Bauen zeigt sich unsere Stärke in der Ablaufplanung, denn hier sind unterschiedlichste Handwerkerleistungen zu koordinieren und abzustimmen. Wir bauen in der Region mit Partnern aus der Region.
+                </p>
+                <p>
+                  Verstärkung für unser Team ist immer willkommen. Deshalb freuen wir uns auf Bewerbungen von Facharbeitern (m/w/d) im Bauhandwerk.
+                </p>
+              </div>
             </Reveal>
           </div>
         </div>
@@ -162,7 +180,7 @@ function Unternehmen() {
                       <div className="relative aspect-[3/2] overflow-hidden shadow-editorial">
                         <img
                           src={m.img}
-                          alt={`Anderka GmbH — ${m.titel}`}
+                          alt={`Baugeschäft Stefan Huber — ${m.titel}`}
                           loading="lazy"
                           className="absolute inset-0 w-full h-full object-cover"
                         />
@@ -194,9 +212,9 @@ function Unternehmen() {
 
           <div className="mt-16 md:mt-24 flex flex-col gap-16 md:gap-24">
             {[
-              { titel: "Familiäres Umfeld", img: lgFamilie, text: "Wir sind stolz darauf, regelmäßig Mitarbeiterjubiläen zu feiern — denn ein kompetentes und stabiles Team ist die Grundlage für hochwertige Bauarbeiten." },
-              { titel: "Maßgeschneidert", img: lgMassgeschneidert, text: "Unser Planer setzt Ihre Ideen in die Realität um und erstellt für Sie die Eingabeplanung." },
-              { titel: "Wir bilden aus!", img: lgAusbildung, text: "Unser Team freut sich auf neuen, motivierten Zuwachs. Gerne bieten wir ein Praktikum zur Berufsorientierung an." },
+              { titel: "Durchdachte Ablaufplanung", img: lgFamilie, text: "Unsere absolute Stärke ist eine durchdachte Ablaufplanung und eine perfekte Organisation der verschiedenen Gewerke und Tätigkeiten — denn beim schlüsselfertig Bauen sind unterschiedlichste Handwerkerleistungen zu koordinieren und abzustimmen." },
+              { titel: "Ein fester Ansprechpartner", img: lgMassgeschneidert, text: "Sie haben während der ganzen Bauphase immer einen Ansprechpartner, der dafür sorgt, dass auf Ihrer Baustelle alles läuft — vom Angebot bis zur Abnahme." },
+              { titel: "Regional mit regionalen Partnern", img: lgAusbildung, text: "Wir bauen in der Region mit Partnern aus der Region. Vertrauen Sie unserer Erfahrung aus vielen Projekten im Rohbau, beim schlüsselfertigen Bauen oder im Umbau." },
             ].map((g, i) => {
               const imageLeft = i % 2 === 1;
               return (
@@ -224,7 +242,7 @@ function Unternehmen() {
       <section className="relative w-full h-[55vh] min-h-[360px] md:h-[72vh] overflow-hidden">
         <img
           src={lgFamilie}
-          alt="Das Team der Anderka GmbH vor den Firmenfahrzeugen"
+          alt="Das Team von Baugeschäft Stefan Huber"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-black/10" />
@@ -241,7 +259,7 @@ function Unternehmen() {
               <div className="p-6 md:p-10 pr-10 md:pr-20">
                 <h2 className="font-serif text-3xl md:text-5xl tracking-wide">Unser Team</h2>
                 <p className="mt-2 font-serif text-xl md:text-2xl font-light text-white/85">
-                  Ein starkes Team — seit 1962
+                  Ein starkes Team — seit 2008
                 </p>
                 <Link
                   to="/karriere"
@@ -255,34 +273,25 @@ function Unternehmen() {
         </div>
       </section>
 
-      {/* BAUMEISTER GESUCHT */}
+      {/* LEITGEDANKE — ZITAT */}
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="container-x">
           <div className="relative mx-auto max-w-3xl text-center">
-            {/* Foto-Sticker: „Wir sind Pate" — neben der Headline */}
-            <div className="hidden lg:block absolute -left-44 xl:-left-56 top-0 -rotate-6 w-36 xl:w-44 bg-white p-2 pb-5 shadow-editorial">
-              <img
-                src={kitaBadge}
-                alt="Wir sind Pate bei der Aktion „Baumeister gesucht“ — Harry Hammer und Nicki Nagel auf Tour"
-                className="w-full h-auto"
-              />
-            </div>
-
             <Reveal>
               <h2 className="font-serif text-4xl md:text-6xl leading-[1.05]">
-                „Baumeister gesucht" — schon im Kindergarten
+                Wir nehmen uns Zeit für Ihre Ideen
               </h2>
             </Reveal>
             <Reveal delay={120}>
               <div className="mt-8 space-y-6 text-lg text-stone leading-relaxed">
                 <p>
-                  Wir sind stolze Paten des preisgekrönten KITA-Projekts der bayerischen Bauwirtschaft. Seit über zehn Jahren begeistert es Kindergartenkinder für das Maurerhandwerk — und für das, was am Bau wirklich zählt: gemeinsam etwas Bleibendes schaffen.
+                  Wir nehmen uns Zeit für Ihre Ideen und Wünsche und sorgen mit einem nachvollziehbaren Angebot sowie einer detaillierten Ablaufplanung dafür, dass es auf Ihrer Baustelle reibungslos läuft.
                 </p>
                 <p>
-                  Gemeinsam mit den Bauwirtschafts-Maskottchen <em>Nicki Nagel</em> und <em>Harry Hammer</em> übergaben wir ein Baumeister-Paket mit Werkbank für vier Kinder und gefüllter Werkzeugtasche — sicherer Umgang mit Säge, Hobel, Feile und Hammer inklusive.
+                  Bereits während der Angebotsphase überlegen wir uns, wie wir Ihr Projekt ausführen können und besprechen alle Punkte detailliert mit Ihnen. Uns ist wichtig, dass Ihre Fragen beantwortet werden.
                 </p>
-                <p>
-                  Die Vorschulkinder erhielten zudem das Heft <em>„Häuser, Straßen, Tunnel bauen"</em>, das im Leseprogramm Antolin erfasst ist.
+                <p className="font-medium text-foreground">
+                  Vom Angebot bis zur Abnahme haben Sie immer einen Ansprechpartner: Stefan Huber.
                 </p>
               </div>
             </Reveal>

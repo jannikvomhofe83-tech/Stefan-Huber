@@ -36,8 +36,8 @@
   --color-ink: var(--ink);
   --color-stone: var(--stone);
 
-  --font-serif: "Fraunces", "Libre Caslon Text", Georgia, serif;
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
   --shadow-editorial: 0 30px 80px -40px color-mix(in oklab, var(--ink) 35%, transparent);
 }
@@ -46,10 +46,10 @@
   --radius: 0.5rem;
 
   /* Brand */
-  --primary: oklch(0.42 0.16 27);          /* #980000 bordeaux */
-  --primary-dark: oklch(0.32 0.15 27);     /* #6B0000 */
-  --primary-tint: oklch(0.94 0.02 20);     /* #F5EBEB */
-  --primary-foreground: oklch(0.98 0.005 80);
+  --primary: #ECC26B;                      /* Huber gold */
+  --primary-dark: #D9A93F;                 /* darker gold */
+  --primary-tint: #FBF1DC;                 /* light gold tint */
+  --primary-foreground: #1A1A1A;           /* dark text on gold */
 
   /* Neutrals */
   --background: oklch(0.975 0.007 85);     /* #FAF8F5 warm off-white */
@@ -67,7 +67,7 @@
   --muted: oklch(0.94 0.005 85);
   --muted-foreground: var(--stone);
   --accent: var(--primary-tint);
-  --accent-foreground: var(--primary-dark);
+  --accent-foreground: var(--foreground);
 
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.98 0.003 247);
@@ -211,3 +211,4 @@
   opacity: 1;
   transform: translateY(0);
 }
+

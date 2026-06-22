@@ -11,14 +11,23 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UnternehmenRouteImport } from './routes/unternehmen'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ReferenzenRouteImport } from './routes/referenzen'
 import { Route as LeistungenRouteImport } from './routes/leistungen'
 import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as Karriere2RouteImport } from './routes/karriere 2'
 import { Route as KarriereRouteImport } from './routes/karriere'
+import { Route as Index2RouteImport } from './routes/index 2'
 import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ReferenzenIndexRouteImport } from './routes/referenzen.index'
 import { Route as LeistungenIndexRouteImport } from './routes/leistungen.index'
-import { Route as LeistungenIndividuellePlanungRouteImport } from './routes/leistungen.individuelle-planung'
+import { Route as ReferenzenNeubauRouteImport } from './routes/referenzen.neubau'
+import { Route as ReferenzenGewerbeKommuneRouteImport } from './routes/referenzen.gewerbe-kommune'
+import { Route as ReferenzenBauenImBestandRouteImport } from './routes/referenzen.bauen-im-bestand'
+import { Route as LeistungenUmbauSanierungRouteImport } from './routes/leistungen.umbau-sanierung'
+import { Route as LeistungenSchluesselfertigesBauenRouteImport } from './routes/leistungen.schluesselfertiges-bauen'
+import { Route as LeistungenRohbauRouteImport } from './routes/leistungen.rohbau'
 
 const UnternehmenRoute = UnternehmenRouteImport.update({
   id: '/unternehmen',
@@ -28,6 +37,11 @@ const UnternehmenRoute = UnternehmenRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferenzenRoute = ReferenzenRouteImport.update({
+  id: '/referenzen',
+  path: '/referenzen',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LeistungenRoute = LeistungenRouteImport.update({
@@ -40,9 +54,19 @@ const KontaktRoute = KontaktRouteImport.update({
   path: '/kontakt',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Karriere2Route = Karriere2RouteImport.update({
+  id: '/karriere 2',
+  path: '/karriere 2',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KarriereRoute = KarriereRouteImport.update({
   id: '/karriere',
   path: '/karriere',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Index2Route = Index2RouteImport.update({
+  id: '/index 2',
+  path: '/index 2',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ImpressumRoute = ImpressumRouteImport.update({
@@ -60,53 +84,112 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReferenzenIndexRoute = ReferenzenIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ReferenzenRoute,
+} as any)
 const LeistungenIndexRoute = LeistungenIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => LeistungenRoute,
 } as any)
-const LeistungenIndividuellePlanungRoute =
-  LeistungenIndividuellePlanungRouteImport.update({
-    id: '/individuelle-planung',
-    path: '/individuelle-planung',
+const ReferenzenNeubauRoute = ReferenzenNeubauRouteImport.update({
+  id: '/neubau',
+  path: '/neubau',
+  getParentRoute: () => ReferenzenRoute,
+} as any)
+const ReferenzenGewerbeKommuneRoute =
+  ReferenzenGewerbeKommuneRouteImport.update({
+    id: '/gewerbe-kommune',
+    path: '/gewerbe-kommune',
+    getParentRoute: () => ReferenzenRoute,
+  } as any)
+const ReferenzenBauenImBestandRoute =
+  ReferenzenBauenImBestandRouteImport.update({
+    id: '/bauen-im-bestand',
+    path: '/bauen-im-bestand',
+    getParentRoute: () => ReferenzenRoute,
+  } as any)
+const LeistungenUmbauSanierungRoute =
+  LeistungenUmbauSanierungRouteImport.update({
+    id: '/umbau-sanierung',
+    path: '/umbau-sanierung',
     getParentRoute: () => LeistungenRoute,
   } as any)
+const LeistungenSchluesselfertigesBauenRoute =
+  LeistungenSchluesselfertigesBauenRouteImport.update({
+    id: '/schluesselfertiges-bauen',
+    path: '/schluesselfertiges-bauen',
+    getParentRoute: () => LeistungenRoute,
+  } as any)
+const LeistungenRohbauRoute = LeistungenRohbauRouteImport.update({
+  id: '/rohbau',
+  path: '/rohbau',
+  getParentRoute: () => LeistungenRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
+  '/index 2': typeof Index2Route
   '/karriere': typeof KarriereRoute
+  '/karriere 2': typeof Karriere2Route
   '/kontakt': typeof KontaktRoute
   '/leistungen': typeof LeistungenRouteWithChildren
+  '/referenzen': typeof ReferenzenRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/unternehmen': typeof UnternehmenRoute
-  '/leistungen/individuelle-planung': typeof LeistungenIndividuellePlanungRoute
+  '/leistungen/rohbau': typeof LeistungenRohbauRoute
+  '/leistungen/schluesselfertiges-bauen': typeof LeistungenSchluesselfertigesBauenRoute
+  '/leistungen/umbau-sanierung': typeof LeistungenUmbauSanierungRoute
+  '/referenzen/bauen-im-bestand': typeof ReferenzenBauenImBestandRoute
+  '/referenzen/gewerbe-kommune': typeof ReferenzenGewerbeKommuneRoute
+  '/referenzen/neubau': typeof ReferenzenNeubauRoute
   '/leistungen/': typeof LeistungenIndexRoute
+  '/referenzen/': typeof ReferenzenIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
+  '/index 2': typeof Index2Route
   '/karriere': typeof KarriereRoute
+  '/karriere 2': typeof Karriere2Route
   '/kontakt': typeof KontaktRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/unternehmen': typeof UnternehmenRoute
-  '/leistungen/individuelle-planung': typeof LeistungenIndividuellePlanungRoute
+  '/leistungen/rohbau': typeof LeistungenRohbauRoute
+  '/leistungen/schluesselfertiges-bauen': typeof LeistungenSchluesselfertigesBauenRoute
+  '/leistungen/umbau-sanierung': typeof LeistungenUmbauSanierungRoute
+  '/referenzen/bauen-im-bestand': typeof ReferenzenBauenImBestandRoute
+  '/referenzen/gewerbe-kommune': typeof ReferenzenGewerbeKommuneRoute
+  '/referenzen/neubau': typeof ReferenzenNeubauRoute
   '/leistungen': typeof LeistungenIndexRoute
+  '/referenzen': typeof ReferenzenIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
+  '/index 2': typeof Index2Route
   '/karriere': typeof KarriereRoute
+  '/karriere 2': typeof Karriere2Route
   '/kontakt': typeof KontaktRoute
   '/leistungen': typeof LeistungenRouteWithChildren
+  '/referenzen': typeof ReferenzenRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/unternehmen': typeof UnternehmenRoute
-  '/leistungen/individuelle-planung': typeof LeistungenIndividuellePlanungRoute
+  '/leistungen/rohbau': typeof LeistungenRohbauRoute
+  '/leistungen/schluesselfertiges-bauen': typeof LeistungenSchluesselfertigesBauenRoute
+  '/leistungen/umbau-sanierung': typeof LeistungenUmbauSanierungRoute
+  '/referenzen/bauen-im-bestand': typeof ReferenzenBauenImBestandRoute
+  '/referenzen/gewerbe-kommune': typeof ReferenzenGewerbeKommuneRoute
+  '/referenzen/neubau': typeof ReferenzenNeubauRoute
   '/leistungen/': typeof LeistungenIndexRoute
+  '/referenzen/': typeof ReferenzenIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -114,45 +197,74 @@ export interface FileRouteTypes {
     | '/'
     | '/datenschutz'
     | '/impressum'
+    | '/index 2'
     | '/karriere'
+    | '/karriere 2'
     | '/kontakt'
     | '/leistungen'
+    | '/referenzen'
     | '/sitemap.xml'
     | '/unternehmen'
-    | '/leistungen/individuelle-planung'
+    | '/leistungen/rohbau'
+    | '/leistungen/schluesselfertiges-bauen'
+    | '/leistungen/umbau-sanierung'
+    | '/referenzen/bauen-im-bestand'
+    | '/referenzen/gewerbe-kommune'
+    | '/referenzen/neubau'
     | '/leistungen/'
+    | '/referenzen/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/datenschutz'
     | '/impressum'
+    | '/index 2'
     | '/karriere'
+    | '/karriere 2'
     | '/kontakt'
     | '/sitemap.xml'
     | '/unternehmen'
-    | '/leistungen/individuelle-planung'
+    | '/leistungen/rohbau'
+    | '/leistungen/schluesselfertiges-bauen'
+    | '/leistungen/umbau-sanierung'
+    | '/referenzen/bauen-im-bestand'
+    | '/referenzen/gewerbe-kommune'
+    | '/referenzen/neubau'
     | '/leistungen'
+    | '/referenzen'
   id:
     | '__root__'
     | '/'
     | '/datenschutz'
     | '/impressum'
+    | '/index 2'
     | '/karriere'
+    | '/karriere 2'
     | '/kontakt'
     | '/leistungen'
+    | '/referenzen'
     | '/sitemap.xml'
     | '/unternehmen'
-    | '/leistungen/individuelle-planung'
+    | '/leistungen/rohbau'
+    | '/leistungen/schluesselfertiges-bauen'
+    | '/leistungen/umbau-sanierung'
+    | '/referenzen/bauen-im-bestand'
+    | '/referenzen/gewerbe-kommune'
+    | '/referenzen/neubau'
     | '/leistungen/'
+    | '/referenzen/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DatenschutzRoute: typeof DatenschutzRoute
   ImpressumRoute: typeof ImpressumRoute
+  Index2Route: typeof Index2Route
   KarriereRoute: typeof KarriereRoute
+  Karriere2Route: typeof Karriere2Route
   KontaktRoute: typeof KontaktRoute
   LeistungenRoute: typeof LeistungenRouteWithChildren
+  ReferenzenRoute: typeof ReferenzenRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UnternehmenRoute: typeof UnternehmenRoute
 }
@@ -173,6 +285,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/referenzen': {
+      id: '/referenzen'
+      path: '/referenzen'
+      fullPath: '/referenzen'
+      preLoaderRoute: typeof ReferenzenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/leistungen': {
       id: '/leistungen'
       path: '/leistungen'
@@ -187,11 +306,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KontaktRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/karriere 2': {
+      id: '/karriere 2'
+      path: '/karriere 2'
+      fullPath: '/karriere 2'
+      preLoaderRoute: typeof Karriere2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/karriere': {
       id: '/karriere'
       path: '/karriere'
       fullPath: '/karriere'
       preLoaderRoute: typeof KarriereRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/index 2': {
+      id: '/index 2'
+      path: '/index 2'
+      fullPath: '/index 2'
+      preLoaderRoute: typeof Index2RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/impressum': {
@@ -215,6 +348,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/referenzen/': {
+      id: '/referenzen/'
+      path: '/'
+      fullPath: '/referenzen/'
+      preLoaderRoute: typeof ReferenzenIndexRouteImport
+      parentRoute: typeof ReferenzenRoute
+    }
     '/leistungen/': {
       id: '/leistungen/'
       path: '/'
@@ -222,23 +362,63 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LeistungenIndexRouteImport
       parentRoute: typeof LeistungenRoute
     }
-    '/leistungen/individuelle-planung': {
-      id: '/leistungen/individuelle-planung'
-      path: '/individuelle-planung'
-      fullPath: '/leistungen/individuelle-planung'
-      preLoaderRoute: typeof LeistungenIndividuellePlanungRouteImport
+    '/referenzen/neubau': {
+      id: '/referenzen/neubau'
+      path: '/neubau'
+      fullPath: '/referenzen/neubau'
+      preLoaderRoute: typeof ReferenzenNeubauRouteImport
+      parentRoute: typeof ReferenzenRoute
+    }
+    '/referenzen/gewerbe-kommune': {
+      id: '/referenzen/gewerbe-kommune'
+      path: '/gewerbe-kommune'
+      fullPath: '/referenzen/gewerbe-kommune'
+      preLoaderRoute: typeof ReferenzenGewerbeKommuneRouteImport
+      parentRoute: typeof ReferenzenRoute
+    }
+    '/referenzen/bauen-im-bestand': {
+      id: '/referenzen/bauen-im-bestand'
+      path: '/bauen-im-bestand'
+      fullPath: '/referenzen/bauen-im-bestand'
+      preLoaderRoute: typeof ReferenzenBauenImBestandRouteImport
+      parentRoute: typeof ReferenzenRoute
+    }
+    '/leistungen/umbau-sanierung': {
+      id: '/leistungen/umbau-sanierung'
+      path: '/umbau-sanierung'
+      fullPath: '/leistungen/umbau-sanierung'
+      preLoaderRoute: typeof LeistungenUmbauSanierungRouteImport
+      parentRoute: typeof LeistungenRoute
+    }
+    '/leistungen/schluesselfertiges-bauen': {
+      id: '/leistungen/schluesselfertiges-bauen'
+      path: '/schluesselfertiges-bauen'
+      fullPath: '/leistungen/schluesselfertiges-bauen'
+      preLoaderRoute: typeof LeistungenSchluesselfertigesBauenRouteImport
+      parentRoute: typeof LeistungenRoute
+    }
+    '/leistungen/rohbau': {
+      id: '/leistungen/rohbau'
+      path: '/rohbau'
+      fullPath: '/leistungen/rohbau'
+      preLoaderRoute: typeof LeistungenRohbauRouteImport
       parentRoute: typeof LeistungenRoute
     }
   }
 }
 
 interface LeistungenRouteChildren {
-  LeistungenIndividuellePlanungRoute: typeof LeistungenIndividuellePlanungRoute
+  LeistungenRohbauRoute: typeof LeistungenRohbauRoute
+  LeistungenSchluesselfertigesBauenRoute: typeof LeistungenSchluesselfertigesBauenRoute
+  LeistungenUmbauSanierungRoute: typeof LeistungenUmbauSanierungRoute
   LeistungenIndexRoute: typeof LeistungenIndexRoute
 }
 
 const LeistungenRouteChildren: LeistungenRouteChildren = {
-  LeistungenIndividuellePlanungRoute: LeistungenIndividuellePlanungRoute,
+  LeistungenRohbauRoute: LeistungenRohbauRoute,
+  LeistungenSchluesselfertigesBauenRoute:
+    LeistungenSchluesselfertigesBauenRoute,
+  LeistungenUmbauSanierungRoute: LeistungenUmbauSanierungRoute,
   LeistungenIndexRoute: LeistungenIndexRoute,
 }
 
@@ -246,13 +426,34 @@ const LeistungenRouteWithChildren = LeistungenRoute._addFileChildren(
   LeistungenRouteChildren,
 )
 
+interface ReferenzenRouteChildren {
+  ReferenzenBauenImBestandRoute: typeof ReferenzenBauenImBestandRoute
+  ReferenzenGewerbeKommuneRoute: typeof ReferenzenGewerbeKommuneRoute
+  ReferenzenNeubauRoute: typeof ReferenzenNeubauRoute
+  ReferenzenIndexRoute: typeof ReferenzenIndexRoute
+}
+
+const ReferenzenRouteChildren: ReferenzenRouteChildren = {
+  ReferenzenBauenImBestandRoute: ReferenzenBauenImBestandRoute,
+  ReferenzenGewerbeKommuneRoute: ReferenzenGewerbeKommuneRoute,
+  ReferenzenNeubauRoute: ReferenzenNeubauRoute,
+  ReferenzenIndexRoute: ReferenzenIndexRoute,
+}
+
+const ReferenzenRouteWithChildren = ReferenzenRoute._addFileChildren(
+  ReferenzenRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DatenschutzRoute: DatenschutzRoute,
   ImpressumRoute: ImpressumRoute,
+  Index2Route: Index2Route,
   KarriereRoute: KarriereRoute,
+  Karriere2Route: Karriere2Route,
   KontaktRoute: KontaktRoute,
   LeistungenRoute: LeistungenRouteWithChildren,
+  ReferenzenRoute: ReferenzenRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   UnternehmenRoute: UnternehmenRoute,
 }
