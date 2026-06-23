@@ -8,7 +8,7 @@ import untGegenwart from "@/assets/unt-gegenwart.jpg";
 import lgFamilie from "@/assets/lg-familie.jpg";
 import lgMassgeschneidert from "@/assets/lg-massgeschneidert.jpg";
 import lgAusbildung from "@/assets/lg-ausbildung.jpg";
-import logoMarker from "@/assets/logo-anderka.png";
+import logoMarker from "@/assets/logo-huber-icon.png";
 
 export const Route = createFileRoute("/unternehmen")({
   head: () => ({
